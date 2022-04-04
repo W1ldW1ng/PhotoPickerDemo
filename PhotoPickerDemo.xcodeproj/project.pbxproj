@@ -11,6 +11,8 @@
 		B767912527FABCBA007FFE61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767912427FABCBA007FFE61 /* ContentView.swift */; };
 		B767912727FABCBD007FFE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B767912627FABCBD007FFE61 /* Assets.xcassets */; };
 		B767912A27FABCBD007FFE61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B767912927FABCBD007FFE61 /* Preview Assets.xcassets */; };
+		B767913627FABDFA007FFE61 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767913527FABDFA007FFE61 /* ImagePicker.swift */; };
+		B767913827FABE0F007FFE61 /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767913727FABE0F007FFE61 /* ZoomableScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		B767912427FABCBA007FFE61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B767912627FABCBD007FFE61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B767912927FABCBD007FFE61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B767913527FABDFA007FFE61 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		B767913727FABE0F007FFE61 /* ZoomableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 		B767913327FABD06007FFE61 /* UIViewRepresentables */ = {
 			isa = PBXGroup;
 			children = (
+				B767913527FABDFA007FFE61 /* ImagePicker.swift */,
+				B767913727FABE0F007FFE61 /* ZoomableScrollView.swift */,
 			);
 			path = UIViewRepresentables;
 			sourceTree = "<group>";
@@ -177,7 +183,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B767913627FABDFA007FFE61 /* ImagePicker.swift in Sources */,
 				B767912527FABCBA007FFE61 /* ContentView.swift in Sources */,
+				B767913827FABE0F007FFE61 /* ZoomableScrollView.swift in Sources */,
 				B767912327FABCBA007FFE61 /* PhotoPickerDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
