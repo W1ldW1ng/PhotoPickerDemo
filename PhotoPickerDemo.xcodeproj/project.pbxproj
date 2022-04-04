@@ -52,7 +52,11 @@
 			isa = PBXGroup;
 			children = (
 				B767912227FABCBA007FFE61 /* PhotoPickerDemoApp.swift */,
-				B767912427FABCBA007FFE61 /* ContentView.swift */,
+				B767913027FABCE9007FFE61 /* Views */,
+				B767913127FABCF2007FFE61 /* ViewModels */,
+				B767913227FABCFF007FFE61 /* Models */,
+				B767913327FABD06007FFE61 /* UIViewRepresentables */,
+				B767913427FABD18007FFE61 /* Extensions */,
 				B767912627FABCBD007FFE61 /* Assets.xcassets */,
 				B767912827FABCBD007FFE61 /* Preview Content */,
 			);
@@ -65,6 +69,42 @@
 				B767912927FABCBD007FFE61 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B767913027FABCE9007FFE61 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B767912427FABCBA007FFE61 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B767913127FABCF2007FFE61 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B767913227FABCFF007FFE61 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B767913327FABD06007FFE61 /* UIViewRepresentables */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIViewRepresentables;
+			sourceTree = "<group>";
+		};
+		B767913427FABD18007FFE61 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
