@@ -27,13 +27,13 @@ struct ContentView: View {
             HStack {
                 Button {
                     vm.source = .camera
-                    vm.showPicker = true
+                    vm.showPhotoPicker()
                 } label: {
                     Text("Camera")
                 }
                 Button {
                     vm.source = .library
-                    vm.showPicker = true
+                    vm.showPhotoPicker()
                 } label: {
                     Text("Photos")
                 }
