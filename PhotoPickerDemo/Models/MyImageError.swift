@@ -12,6 +12,8 @@ enum MyImageError: Error, LocalizedError {
     case decodingError
     case encodingError
     case saveError
+    case saveImageError
+    case readImageError
     
     var errorDescription: String? {
         switch self {
@@ -24,6 +26,10 @@ enum MyImageError: Error, LocalizedError {
             return NSLocalizedString("Could not sabe your MyImage data, please reinstall the app..", comment: "")
         case .saveError:
             return NSLocalizedString("Could not save MyImage Json file, please reinstall the app.", comment: "")
+        case .saveImageError:
+            return NSLocalizedString("Could not save image, please reinstall the app.", comment: "")
+        case .readImageError:
+            return NSLocalizedString("Could not read image, please reinstall the app.", comment: "")
         }
     }
     
