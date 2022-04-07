@@ -12,10 +12,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if let image = vm.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(minWidth: 0, maxWidth: .infinity)
+                ZoomableScrollView {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
             } else {
                 Image(systemName: "photo.fill")
                     .resizable()
@@ -42,7 +44,13 @@ struct ContentView: View {
         }
         .sheet(isPresented: $vm.showPicker) {
             ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
+                .ignoresSafeArea()
         }
+        .alert("Error", isPresented: $vm.showCameraAlert, presenting: vm.cameraError, actions: { cameraError in
+            cameraError.button
+        }, message: { cameraError in
+            Text(cameraError.message)
+        })
         .navigationTitle("My Images")
     }
 }
