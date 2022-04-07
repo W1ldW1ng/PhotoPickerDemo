@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B720666227FE731300FCEF01 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B720666127FE731300FCEF01 /* MyImage.swift */; };
+		B720666427FE73CA00FCEF01 /* MyImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B720666327FE73CA00FCEF01 /* MyImageError.swift */; };
 		B767912327FABCBA007FFE61 /* PhotoPickerDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767912227FABCBA007FFE61 /* PhotoPickerDemoApp.swift */; };
 		B767912527FABCBA007FFE61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B767912427FABCBA007FFE61 /* ContentView.swift */; };
 		B767912727FABCBD007FFE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B767912627FABCBD007FFE61 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B720666127FE731300FCEF01 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
+		B720666327FE73CA00FCEF01 /* MyImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageError.swift; sourceTree = "<group>"; };
 		B767911F27FABCBA007FFE61 /* PhotoPickerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPickerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B767912227FABCBA007FFE61 /* PhotoPickerDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerDemoApp.swift; sourceTree = "<group>"; };
 		B767912427FABCBA007FFE61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				B767913D27FAC2FB007FFE61 /* Picker.swift */,
+				B720666127FE731300FCEF01 /* MyImage.swift */,
+				B720666327FE73CA00FCEF01 /* MyImageError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,12 +199,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B767913627FABDFA007FFE61 /* ImagePicker.swift in Sources */,
+				B720666227FE731300FCEF01 /* MyImage.swift in Sources */,
 				B767912527FABCBA007FFE61 /* ContentView.swift in Sources */,
 				B767913E27FAC2FC007FFE61 /* Picker.swift in Sources */,
 				B767913A27FABEE9007FFE61 /* FileManager+Extensions.swift in Sources */,
 				B767913827FABE0F007FFE61 /* ZoomableScrollView.swift in Sources */,
 				B767913C27FABFCA007FFE61 /* ViewModel.swift in Sources */,
 				B767912327FABCBA007FFE61 /* PhotoPickerDemoApp.swift in Sources */,
+				B720666427FE73CA00FCEF01 /* MyImageError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
