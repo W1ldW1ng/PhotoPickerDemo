@@ -26,20 +26,47 @@ struct ContentView: View {
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .padding(.horizontal)
             }
-            HStack {
-                Button {
-                    vm.source = .camera
-                    vm.showPhotoPicker()
-                } label: {
-                    Text("Camera")
+            VStack {
+                TextField("Image Name", text: $vm.imageName) { isEditing in
+                    vm.isEditing = isEditing
                 }
-                Button {
-                    vm.source = .library
-                    vm.showPhotoPicker()
-                } label: {
-                    Text("Photos")
+                .textFieldStyle(.roundedBorder)
+                HStack {
+                    Button {
+                        if vm.selectedImage == nil {
+                            vm.addMyImage(vm.imageName, image: vm.image!)
+                        }
+                    } label : {
+                        ButtonLabel(symbolName: vm.selectedImage == nil ? "square.and.arrow.down.fill" : "square.and.arrow.up.fill", label: vm.selectedImage == nil ? "Save" : "Update")
+                    }
+                    .disabled(vm.buttonDiabled)
+                    .opacity(vm.buttonDiabled ? 0.6 : 1)
+                    
+                    if !vm.deleteButtonIsHidden {
+                        Button {
+                            
+                        } label: {
+                            ButtonLabel(symbolName: "trash", label: "Delete")
+                        }
+                    }
+                }
+                
+                HStack {
+                    Button {
+                        vm.source = .camera
+                        vm.showPhotoPicker()
+                    } label: {
+                        ButtonLabel(symbolName: "camera", label: "Camera")
+                    }
+                    Button {
+                        vm.source = .library
+                        vm.showPhotoPicker()
+                    } label: {
+                        ButtonLabel(symbolName: "photo", label: "Photos")
+                    }
                 }
             }
+            .padding()
             Spacer()
         }
         .sheet(isPresented: $vm.showPicker) {
