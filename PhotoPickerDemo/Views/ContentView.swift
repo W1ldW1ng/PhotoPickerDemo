@@ -9,76 +9,53 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var vm: ViewModel
+    @FocusState var nameField: Bool
     var body: some View {
-        VStack {
-            if let image = vm.image {
-                ZoomableScrollView {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                }
-            } else {
-                Image(systemName: "photo.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .opacity(0.6)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .padding(.horizontal)
-            }
+        NavigationView {
             VStack {
-                TextField("Image Name", text: $vm.imageName) { isEditing in
-                    vm.isEditing = isEditing
+                if !vm.isEditing {
+                    imageScroll
                 }
-                .textFieldStyle(.roundedBorder)
-                HStack {
-                    Button {
-                        if vm.selectedImage == nil {
-                            vm.addMyImage(vm.imageName, image: vm.image!)
-                        }
-                    } label : {
-                        ButtonLabel(symbolName: vm.selectedImage == nil ? "square.and.arrow.down.fill" : "square.and.arrow.up.fill", label: vm.selectedImage == nil ? "Save" : "Update")
+                selectedImage
+                VStack {
+                    if vm.image != nil {
+                        editGroup
                     }
-                    .disabled(vm.buttonDiabled)
-                    .opacity(vm.buttonDiabled ? 0.6 : 1)
-                    
-                    if !vm.deleteButtonIsHidden {
+                    if !vm.isEditing {
+                        pickerButtons
+                    }
+                }
+                .padding()
+                Spacer()
+            }
+            .task {
+                if FileManager().docExist(named: fileName) {
+                    vm.loadMyImagesJSONFile()
+                }
+            }
+            .sheet(isPresented: $vm.showPicker) {
+                ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
+                    .ignoresSafeArea()
+            }
+            .alert("Error", isPresented: $vm.showFileAlert, presenting: vm.appError, actions: { cameraError in
+                cameraError.button
+            }, message: { cameraError in
+                Text(cameraError.message)
+            })
+            .navigationTitle("My Images")
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    HStack {
+                        Spacer()
                         Button {
-                            
-                        } label: {
-                            ButtonLabel(symbolName: "trash", label: "Delete")
+                            nameField = false
+                        } label : {
+                            Image(systemName: "keyboard.chevron.compact.down")
                         }
-                    }
-                }
-                
-                HStack {
-                    Button {
-                        vm.source = .camera
-                        vm.showPhotoPicker()
-                    } label: {
-                        ButtonLabel(symbolName: "camera", label: "Camera")
-                    }
-                    Button {
-                        vm.source = .library
-                        vm.showPhotoPicker()
-                    } label: {
-                        ButtonLabel(symbolName: "photo", label: "Photos")
                     }
                 }
             }
-            .padding()
-            Spacer()
         }
-        .sheet(isPresented: $vm.showPicker) {
-            ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
-                .ignoresSafeArea()
-        }
-        .alert("Error", isPresented: $vm.showCameraAlert, presenting: vm.cameraError, actions: { cameraError in
-            cameraError.button
-        }, message: { cameraError in
-            Text(cameraError.message)
-        })
-        .navigationTitle("My Images")
     }
 }
 
